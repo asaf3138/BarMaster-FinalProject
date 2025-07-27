@@ -203,3 +203,22 @@ The system uses a SQL Server database consisting of five main tables:
 - Clicking a cocktail opens a large preview with ingredients, image, and a Buy button.
 - Preview includes a smooth zoom-in animation for a modern user experience.
 
+
+
+
+
+---
+
+## 👤 Author
+
+**Asaf Yosef Aviv**  
+💼 Software Engineering Graduate  
+📍 Israel  
+📧 [asaf3138@icloud.com](mailto:asaf3138@icloud.com)  
+🔗 [GitHub Profile](https://github.com/asaf3138)
+
+---
+
+> This project was developed as part of a final project in Software Engineering studies (2022–2024).  
+> Grade: 92 ✅
+
