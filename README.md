@@ -158,3 +158,48 @@ The system uses a SQL Server database consisting of five main tables:
 | Role     | nvarchar(20) | Admin / Manager / Bartender     |
 
 
+
+
+## 🧠 System Logic & Highlights
+
+### 🛒 Smart Purchase Flow
+- Customers (including guests) can buy cocktails via a dedicated purchase form.
+- Discounts are applied automatically based on customer status:
+  - Silver: no discount
+  - Gold: 10%
+  - Platinum: 20%
+- Purchases update stock quantities and increment the customer’s purchase count.
+- Customer status is upgraded dynamically:
+  - 5 purchases → Gold
+  - 10 purchases → Platinum
+
+### 🍸 Inventory-Aware Cocktails
+- Each cocktail has a list of required ingredients (e.g., "Gin=50").
+- When stock is insufficient, the cocktail is marked as *SOLD OUT* and grayed out visually.
+- The system prevents purchases of cocktails that can't be made due to missing ingredients.
+
+### 🔄 Dynamic Forms
+- Cocktail creation form includes dynamic ingredient selectors with add/remove support.
+- Inventory and customer forms include dynamic validation and search as you type.
+
+### 🔐 Role-Based Access
+- Users are assigned roles (Admin, Manager, Bartender).
+- Permissions are enforced in the UI – e.g., waiters cannot delete customers or access settings.
+- Passwords are stored hashed using SHA256 for basic security.
+
+### 📊 Interactive Analytics
+- The system includes dashboards with:
+  - Bar charts for most sold cocktails
+  - Monthly revenue graphs
+  - Top customers
+  - Product shortage lists
+- All charts are generated from SQL queries and rendered with Guna Charts.
+
+### 🧭 Form Navigation Engine
+- All screens use a navigation manager to move between forms seamlessly.
+- Enhances the UX with smooth transitions and consistent structure.
+
+### 🎨 Zoom-In Preview
+- Clicking a cocktail opens a large preview with ingredients, image, and a Buy button.
+- Preview includes a smooth zoom-in animation for a modern user experience.
+
