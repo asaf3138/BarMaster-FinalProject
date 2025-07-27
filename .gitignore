@@ -1,0 +1,41 @@
+############################################
+# .gitignore for Visual Studio (BarMaster) #
+############################################
+
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio folders
+.vs/
+packages/
+
+# NuGet packages
+*.nupkg
+project.lock.json
+project.assets.json
+
+# Logs
+*.log
+
+# Backup & temp files
+*.tmp
+*.bak
+*.cache
+
+# Windows-specific files
+Thumbs.db
+desktop.ini
+
+# macOS-specific files
+.DS_Store
+
+# Rider / JetBrains (if ever used)
+.idea/
+*.sln.iml
