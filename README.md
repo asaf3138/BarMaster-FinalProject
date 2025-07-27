@@ -23,6 +23,10 @@ The main goal was to create a simple, efficient, and expandable solution for sma
 
 Bar Master was developed following best practices in OOP, UI/UX design, and secure data handling (e.g., SHA256 password hashing).
 
+
+
+
+
 ## ✨ Features
 
 - **Cocktail Management** – Add, edit, preview, and purchase cocktails. Includes dynamic ingredient handling and visual "SOLD OUT" indicators.
@@ -33,3 +37,124 @@ Bar Master was developed following best practices in OOP, UI/UX design, and secu
 - **Role-Based Access** – Secure login with role permissions (Admin, Bartender, Waiter).
 - **Modern UI/UX** – Clean interface built with Guna UI2 components, animations (Zoom-In for previews), and user-friendly design.
 - **Data Security** – Password hashing using SHA256 and SQL query protection.
+
+
+
+
+
+## 🚀 Getting Started
+
+To run the Bar Master system locally, follow these steps:
+
+### ✅ Prerequisites
+- Windows 10 or higher
+- Visual Studio 2022 or newer
+- SQL Server (local installation or SQL Server Express)
+
+### 📥 Clone the repository
+```bash
+git clone https://github.com/asaf3138/BarMaster-FinalProject.git
+📂 Open the project
+Open the BarMaster-FinalProject folder in Visual Studio.
+
+Open the barmaster.sln solution file.
+
+Build the solution (Ctrl+Shift+B).
+
+🛠 Configure the database
+Ensure your SQL Server instance is running locally.
+
+Open App.config and update the connection string if needed:
+
+xml
+Copy
+Edit
+<connectionStrings>
+  <add name="DB" connectionString="Data Source=localhost;Initial Catalog=BarMaster;Integrated Security=True" />
+</connectionStrings>
+Use the included SQL script (or your own) to create the necessary tables:
+
+Cocktails
+
+Products
+
+Customers
+
+Sales
+
+Users
+
+▶️ Run the program
+Press F5 to launch the system.
+
+Log in using a predefined user or register a new one.
+
+
+
+
+
+
+## 📂 Database Structure
+
+The system uses a SQL Server database consisting of five main tables:
+
+### 🥂 Cocktails
+| Column     | Type        | Description                         |
+|------------|-------------|-------------------------------------|
+| ID                | int              | Primary Key                         |
+| Name          | nvarchar(50)| Cocktail name                       |
+| Price            | float       | Price of the cocktail               |
+| Ingredients | text        | Ingredients list (e.g. "Gin=50")    |
+| Image         | text        | Path to image file                  |
+
+---
+
+### 👥 Customers
+| Column        | Type         | Description                          |
+|---------------|--------------|--------------------------------------|
+| ID            | int          | Primary Key                          |
+| First_Name    | nvarchar(50) | Customer first name                  |
+| Last_Name     | nvarchar(50) | Customer last name                   |
+| IDNumber      | nvarchar(9)  | Israeli ID number                    |
+| Phone         | nvarchar(20) | Phone number                         |
+| Email         | nvarchar(100)| Email address                        |
+| PurchaseCount | int          | Number of purchases                  |
+| Status        | nvarchar(20) | Customer level (Silver/Gold/Platinum)|
+| CreatedAt     | datetime     | Join date                            |
+
+---
+
+### 📦 Products
+| Column   | Type          | Description             |
+|----------|---------------|-------------------------|
+| ProductID| int           | Primary Key             |
+| Name     | nvarchar(50)  | Product name            |
+| Amount   | int           | Quantity in stock       |
+| Price    | decimal(10,2) | Unit price              |
+| Category | nvarchar(50)  | Alcohol, Syrup, Juice...|
+
+---
+
+### 🛒 Sales
+| Column      | Type         | Description                      |
+|-------------|--------------|----------------------------------|
+| ID          | int          | Primary Key                      |
+| CustomerID  | int          | Foreign Key to `Customers.ID`    |
+| CocktailName| nvarchar(50) | Cocktail bought                  |
+| Price       | float        | Price at time of purchase        |
+| Amount      | int          | Number of items purchased        |
+| CreatedAt   | datetime     | Purchase date                    |
+
+---
+
+### 🔐 Users
+| Column   | Type         | Description                     |
+|----------|--------------|---------------------------------|
+| UserID   | int          | Primary Key                     |
+| FullName | nvarchar(100)| Full name                       |
+| Phone    | nvarchar(20) | Contact number                  |
+| Email    | nvarchar(100)| Login email                     |
+| Password | nvarchar(64) | Hashed with SHA256              |
+| Role     | nvarchar(20) | Admin / Manager / Bartender     |
+
+
